@@ -73,9 +73,9 @@ class get_result:
 
         pipe = StableDiffusionPipeline.from_pretrained(
             model_id,
-            torch_dtype=torch.float32
+            torch_dtype=torch.float16
         )
-        pipe = pipe.to("cpu")
+        pipe = pipe.to("cuda")
 
         image = pipe(summary).images[0]
         image.save("generated_image.png")
