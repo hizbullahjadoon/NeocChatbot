@@ -32,7 +32,7 @@ def newfunc(user_text, action, mode, chat_history, files=None, path=None):
         
         return user_message
     elif action == "image":
-        summary = get_result().stable_text_summary(text = user_text)
+        summary = get_result().llama_summarize(text = user_text)
         print("Summary: ", summary)
         image = get_result().call_stable_diffusion(summary)
         buf = io.BytesIO()
